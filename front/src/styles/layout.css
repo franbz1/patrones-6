@@ -1,0 +1,208 @@
+#root {
+  min-height: 100vh;
+}
+
+.game-page {
+  padding: var(--space-4);
+  display: grid;
+  gap: var(--space-4);
+}
+
+.top-hud {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--bg-panel);
+  border: 1px solid var(--border-primary);
+  border-radius: 12px;
+  padding: var(--space-3);
+}
+
+.hud-block {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-muted);
+}
+
+.hud-actions {
+  margin-left: auto;
+  display: flex;
+  gap: var(--space-2);
+}
+
+.game-main {
+  display: grid;
+  grid-template-columns: 220px 1fr 280px;
+  gap: var(--space-4);
+}
+
+.game-board {
+  display: grid;
+  gap: var(--space-2);
+  background: var(--bg-board);
+  border: 1px solid var(--border-primary);
+  border-radius: 14px;
+  padding: var(--space-3);
+}
+
+.lane-row {
+  position: relative;
+  border: 1px solid #2b3a2c;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.enemy-track {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.enemy {
+  position: absolute;
+  top: 10%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.7rem;
+}
+
+.enemy.alive .enemy-hp { color: var(--color-success); }
+.enemy.dead .enemy-hp { color: var(--text-muted); }
+.enemy.escaped .enemy-hp { color: var(--color-error); }
+
+.lane-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.board-cell {
+  background: transparent;
+  border: 1px solid #2f4634;
+  min-height: 88px;
+  cursor: pointer;
+  position: relative;
+  color: var(--text-primary);
+}
+
+.board-cell.is-selected {
+  outline: 2px solid var(--border-active);
+}
+
+.board-cell.has-tower {
+  background: rgba(72, 117, 80, 0.2);
+}
+
+.tower-chip {
+  position: absolute;
+  inset: auto 6px 6px 6px;
+  display: grid;
+  gap: 2px;
+  justify-items: center;
+}
+
+.tower-id {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.game-side {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+}
+
+.side-panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-primary);
+  border-radius: 10px;
+  padding: var(--space-3);
+  display: grid;
+  gap: var(--space-2);
+}
+
+.wave-actions,
+.upgrade-buttons {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.tower-stats {
+  display: grid;
+  gap: 2px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.event-feed {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-primary);
+  border-radius: 10px;
+  padding: var(--space-3);
+}
+
+.event-feed ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-1);
+}
+
+.event-success { color: var(--color-success); }
+.event-warn { color: var(--color-warn); }
+.event-error { color: var(--color-error); }
+
+.toast-stack {
+  position: fixed;
+  top: var(--space-4);
+  right: var(--space-4);
+  display: grid;
+  gap: var(--space-2);
+  max-width: 320px;
+}
+
+.toast {
+  background: var(--bg-toast);
+  border: 1px solid #8f3f3f;
+  color: var(--text-primary);
+  border-radius: 8px;
+  padding: var(--space-2);
+  display: grid;
+  gap: var(--space-1);
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+}
+
+button {
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  background: #23303b;
+  color: var(--text-primary);
+  padding: 0.45rem 0.7rem;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.auto-resolve {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+@media (max-width: 1100px) {
+  .game-main {
+    grid-template-columns: 1fr;
+  }
+}
+
