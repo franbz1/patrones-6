@@ -1,1 +1,28 @@
-/.vscode
+# Maven build output
+target/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE folders/files
+.idea/
+*.iml
+.vscode/
+
+# Cursor local metadata
+.cursor/
+
+# Java artifacts
+*.class
+*.jar
+*.war
+*.ear
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
